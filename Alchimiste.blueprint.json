@@ -1,0 +1,2697 @@
+{
+    "name": "Alchimiste",
+    "flow": [
+        {
+            "id": 1,
+            "module": "airtable:TriggerWatchRecords",
+            "version": 3,
+            "parameters": {
+                "base": "appS94jIIo1aBVNbN",
+                "view": "viwnzZj59wgUONkjN",
+                "table": "tblVvasBqJkPKPbuG",
+                "config": {
+                    "labelField": "Status",
+                    "triggerField": "created_at"
+                },
+                "formula": "",
+                "maxRecords": 1,
+                "__IMTCONN__": 11684909,
+                "useColumnId": false
+            },
+            "mapper": {},
+            "metadata": {
+                "designer": {
+                    "x": 0,
+                    "y": 0
+                },
+                "restore": {
+                    "parameters": {
+                        "base": {
+                            "label": "Alchimist"
+                        },
+                        "view": {
+                            "label": "Make-Nouveau"
+                        },
+                        "table": {
+                            "label": "Analyses"
+                        },
+                        "config": {
+                            "nested": {
+                                "labelField": {
+                                    "label": "Status"
+                                },
+                                "triggerField": {
+                                    "label": "created_at"
+                                }
+                            }
+                        },
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "airtable2"
+                            },
+                            "label": "My Airtable Token or Key connection"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:airtable3,airtable2",
+                        "label": "Connection",
+                        "required": true
+                    },
+                    {
+                        "name": "base",
+                        "type": "select",
+                        "label": "Base",
+                        "required": true
+                    },
+                    {
+                        "name": "useColumnId",
+                        "type": "boolean",
+                        "label": "Use Column ID",
+                        "required": true
+                    },
+                    {
+                        "name": "table",
+                        "type": "select",
+                        "label": "Table",
+                        "required": true
+                    },
+                    {
+                        "name": "config",
+                        "spec": [
+                            {
+                                "name": "triggerField",
+                                "type": "select",
+                                "label": "Trigger field",
+                                "required": true
+                            },
+                            {
+                                "name": "triggerField",
+                                "type": "hidden"
+                            },
+                            {
+                                "name": "labelField",
+                                "type": "select",
+                                "label": "Label field",
+                                "required": true
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Trigger configuration"
+                    },
+                    {
+                        "name": "maxRecords",
+                        "type": "integer",
+                        "label": "Limit",
+                        "required": true
+                    },
+                    {
+                        "name": "view",
+                        "type": "select",
+                        "label": "View"
+                    },
+                    {
+                        "name": "formula",
+                        "type": "text",
+                        "label": "Formula"
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "id",
+                        "type": "text",
+                        "label": "ID"
+                    },
+                    {
+                        "name": "createdTime",
+                        "type": "date",
+                        "label": "Created Time"
+                    },
+                    {
+                        "name": "ID",
+                        "type": "number",
+                        "label": "ID"
+                    },
+                    {
+                        "name": "Video File",
+                        "spec": [
+                            {
+                                "name": "id",
+                                "type": "text",
+                                "label": "ID"
+                            },
+                            {
+                                "name": "width",
+                                "type": "uinteger",
+                                "label": "Width"
+                            },
+                            {
+                                "name": "height",
+                                "type": "uinteger",
+                                "label": "Height"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            },
+                            {
+                                "name": "filename",
+                                "type": "filename",
+                                "label": "File name"
+                            },
+                            {
+                                "name": "size",
+                                "type": "uinteger",
+                                "label": "Size"
+                            },
+                            {
+                                "name": "type",
+                                "type": "text",
+                                "label": "MIME type"
+                            },
+                            {
+                                "name": "thumbnails",
+                                "spec": [
+                                    {
+                                        "name": "small",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Small"
+                                    },
+                                    {
+                                        "name": "large",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Large"
+                                    },
+                                    {
+                                        "name": "full",
+                                        "spec": [
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Full"
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "Thumbnails"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Video File"
+                    },
+                    {
+                        "name": "Video URL",
+                        "type": "text",
+                        "label": "Video URL"
+                    },
+                    {
+                        "name": "Email",
+                        "type": "text",
+                        "label": "Email"
+                    },
+                    {
+                        "name": "Status",
+                        "type": "text",
+                        "label": "Status"
+                    },
+                    {
+                        "name": "Transcript",
+                        "type": "text",
+                        "label": "Transcript",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Clip Link",
+                        "type": "text",
+                        "label": "Clip Link"
+                    },
+                    {
+                        "name": "Post_LinkedIn",
+                        "type": "text",
+                        "label": "Post_LinkedIn",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Post_X",
+                        "type": "text",
+                        "label": "Post_X",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Instagram_Caption",
+                        "type": "text",
+                        "label": "Instagram_Caption",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Notes",
+                        "type": "text",
+                        "label": "Notes",
+                        "multiline": true
+                    },
+                    {
+                        "name": "created_at",
+                        "type": "date",
+                        "label": "created_at"
+                    },
+                    {
+                        "name": "update",
+                        "type": "date",
+                        "label": "update"
+                    },
+                    {
+                        "name": "Transcriptid",
+                        "type": "text",
+                        "label": "Transcriptid"
+                    },
+                    {
+                        "name": "Clip1_Start",
+                        "type": "number",
+                        "label": "Clip1_Start"
+                    },
+                    {
+                        "name": "Clip1_End",
+                        "type": "number",
+                        "label": "Clip1_End"
+                    },
+                    {
+                        "name": "Public_Video_URL",
+                        "type": "text",
+                        "label": "Public_Video_URL"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 2,
+            "module": "builtin:BasicRouter",
+            "version": 1,
+            "mapper": null,
+            "metadata": {
+                "designer": {
+                    "x": 300,
+                    "y": 0
+                }
+            },
+            "routes": [
+                {
+                    "flow": [
+                        {
+                            "id": 7,
+                            "module": "assembly-ai:TranscribeAudio",
+                            "version": 1,
+                            "parameters": {
+                                "__IMTCONN__": 11727691,
+                                "wait_until_ready": true
+                            },
+                            "filter": {
+                                "name": "Fichier Uploadé",
+                                "conditions": [
+                                    [
+                                        {
+                                            "a": "{{1.`Video File`}}",
+                                            "o": "exist"
+                                        }
+                                    ]
+                                ]
+                            },
+                            "mapper": {
+                                "audio_url": "{{1.`Video File`[].url}}",
+                                "webhook_url": "https://hook.eu2.make.com/rbunjn5tuqi3k31dna1amnymtjnf3z7v"
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 600,
+                                    "y": -150
+                                },
+                                "restore": {
+                                    "expect": {
+                                        "topics": {
+                                            "mode": "chose"
+                                        },
+                                        "punctuate": {
+                                            "mode": "chose"
+                                        },
+                                        "redact_pii": {
+                                            "mode": "chose"
+                                        },
+                                        "word_boost": {
+                                            "mode": "chose"
+                                        },
+                                        "boost_param": {
+                                            "mode": "chose",
+                                            "label": "Empty"
+                                        },
+                                        "format_text": {
+                                            "mode": "chose"
+                                        },
+                                        "disfluencies": {
+                                            "mode": "chose"
+                                        },
+                                        "dual_channel": {
+                                            "mode": "chose"
+                                        },
+                                        "speech_model": {
+                                            "mode": "chose",
+                                            "label": "Empty"
+                                        },
+                                        "summary_type": {
+                                            "mode": "chose",
+                                            "label": "Empty"
+                                        },
+                                        "auto_chapters": {
+                                            "mode": "chose"
+                                        },
+                                        "custom_topics": {
+                                            "mode": "chose"
+                                        },
+                                        "language_code": {
+                                            "mode": "chose",
+                                            "label": "Empty"
+                                        },
+                                        "summarization": {
+                                            "mode": "chose"
+                                        },
+                                        "summary_model": {
+                                            "mode": "chose",
+                                            "label": "Empty"
+                                        },
+                                        "content_safety": {
+                                            "mode": "chose"
+                                        },
+                                        "iab_categories": {
+                                            "mode": "chose"
+                                        },
+                                        "redact_pii_sub": {
+                                            "mode": "chose",
+                                            "label": "Empty"
+                                        },
+                                        "speaker_labels": {
+                                            "mode": "chose"
+                                        },
+                                        "auto_highlights": {
+                                            "mode": "chose"
+                                        },
+                                        "custom_spelling": {
+                                            "mode": "chose"
+                                        },
+                                        "entity_detection": {
+                                            "mode": "chose"
+                                        },
+                                        "filter_profanity": {
+                                            "mode": "chose"
+                                        },
+                                        "redact_pii_audio": {
+                                            "mode": "chose"
+                                        },
+                                        "language_detection": {
+                                            "mode": "chose"
+                                        },
+                                        "sentiment_analysis": {
+                                            "mode": "chose"
+                                        },
+                                        "redact_pii_policies": {
+                                            "mode": "chose"
+                                        },
+                                        "redact_pii_audio_quality": {
+                                            "mode": "chose",
+                                            "label": "Empty"
+                                        }
+                                    },
+                                    "parameters": {
+                                        "__IMTCONN__": {
+                                            "data": {
+                                                "scoped": "true",
+                                                "connection": "assembly-ai"
+                                            },
+                                            "label": "My AssemblyAI connection (fc845...)"
+                                        }
+                                    }
+                                },
+                                "parameters": [
+                                    {
+                                        "name": "__IMTCONN__",
+                                        "type": "account:assembly-ai",
+                                        "label": "Connection",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "wait_until_ready",
+                                        "type": "boolean",
+                                        "label": "Wait until Transcript is Ready",
+                                        "required": true
+                                    }
+                                ],
+                                "expect": [
+                                    {
+                                        "name": "audio_url",
+                                        "type": "url",
+                                        "label": "Audio URL",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "language_code",
+                                        "type": "select",
+                                        "label": "Language Code",
+                                        "validate": {
+                                            "enum": [
+                                                "en",
+                                                "en_au",
+                                                "en_uk",
+                                                "en_us",
+                                                "es",
+                                                "fr",
+                                                "de",
+                                                "it",
+                                                "pt",
+                                                "nl",
+                                                "af",
+                                                "sq",
+                                                "am",
+                                                "ar",
+                                                "hy",
+                                                "as",
+                                                "az",
+                                                "ba",
+                                                "eu",
+                                                "be",
+                                                "bn",
+                                                "bs",
+                                                "br",
+                                                "bg",
+                                                "my",
+                                                "ca",
+                                                "zh",
+                                                "hr",
+                                                "cs",
+                                                "da",
+                                                "et",
+                                                "fo",
+                                                "fi",
+                                                "gl",
+                                                "ka",
+                                                "el",
+                                                "gu",
+                                                "ht",
+                                                "ha",
+                                                "haw",
+                                                "he",
+                                                "hi",
+                                                "hu",
+                                                "is",
+                                                "id",
+                                                "ja",
+                                                "jw",
+                                                "kn",
+                                                "kk",
+                                                "km",
+                                                "ko",
+                                                "lo",
+                                                "la",
+                                                "lv",
+                                                "ln",
+                                                "lt",
+                                                "lb",
+                                                "mk",
+                                                "mg",
+                                                "ms",
+                                                "ml",
+                                                "mt",
+                                                "mi",
+                                                "mr",
+                                                "mn",
+                                                "ne",
+                                                "no",
+                                                "nn",
+                                                "oc",
+                                                "pa",
+                                                "ps",
+                                                "fa",
+                                                "pl",
+                                                "ro",
+                                                "ru",
+                                                "sa",
+                                                "sr",
+                                                "sn",
+                                                "sd",
+                                                "si",
+                                                "sk",
+                                                "sl",
+                                                "so",
+                                                "su",
+                                                "sw",
+                                                "sv",
+                                                "tl",
+                                                "tg",
+                                                "ta",
+                                                "tt",
+                                                "te",
+                                                "th",
+                                                "bo",
+                                                "tr",
+                                                "tk",
+                                                "uk",
+                                                "ur",
+                                                "uz",
+                                                "vi",
+                                                "cy",
+                                                "yi",
+                                                "yo"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "language_detection",
+                                        "type": "boolean",
+                                        "label": "Language Detection"
+                                    },
+                                    {
+                                        "name": "language_confidence_threshold",
+                                        "type": "number",
+                                        "label": "Language Confidence Threshold",
+                                        "validate": {
+                                            "max": 1,
+                                            "min": 0
+                                        }
+                                    },
+                                    {
+                                        "name": "speech_model",
+                                        "type": "select",
+                                        "label": "Speech Model",
+                                        "validate": {
+                                            "enum": [
+                                                "best",
+                                                "nano"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "punctuate",
+                                        "type": "boolean",
+                                        "label": "Punctuate"
+                                    },
+                                    {
+                                        "name": "format_text",
+                                        "type": "boolean",
+                                        "label": "Format Text"
+                                    },
+                                    {
+                                        "name": "disfluencies",
+                                        "type": "boolean",
+                                        "label": "Disfluencies"
+                                    },
+                                    {
+                                        "name": "dual_channel",
+                                        "type": "boolean",
+                                        "label": "Dual Channel"
+                                    },
+                                    {
+                                        "name": "webhook_url",
+                                        "type": "url",
+                                        "label": "Webhook URL"
+                                    },
+                                    {
+                                        "name": "webhook_auth_header_name",
+                                        "type": "text",
+                                        "label": "Webhook Auth Header Name"
+                                    },
+                                    {
+                                        "name": "webhook_auth_header_value",
+                                        "type": "text",
+                                        "label": "Webhook Auth Header Value"
+                                    },
+                                    {
+                                        "name": "auto_highlights",
+                                        "type": "boolean",
+                                        "label": "Key Phrases"
+                                    },
+                                    {
+                                        "name": "audio_start_from",
+                                        "type": "integer",
+                                        "label": "Audio Start From"
+                                    },
+                                    {
+                                        "name": "audio_end_at",
+                                        "type": "integer",
+                                        "label": "Audio End At"
+                                    },
+                                    {
+                                        "name": "word_boost",
+                                        "spec": {
+                                            "name": "value",
+                                            "type": "text",
+                                            "label": "Word Boost"
+                                        },
+                                        "type": "array",
+                                        "label": "Word Boost"
+                                    },
+                                    {
+                                        "name": "boost_param",
+                                        "type": "select",
+                                        "label": "Word Boost Level",
+                                        "validate": {
+                                            "enum": [
+                                                "low",
+                                                "default",
+                                                "high"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "filter_profanity",
+                                        "type": "boolean",
+                                        "label": "Filter Profanity"
+                                    },
+                                    {
+                                        "name": "redact_pii",
+                                        "type": "boolean",
+                                        "label": "Redact PII"
+                                    },
+                                    {
+                                        "name": "redact_pii_audio",
+                                        "type": "boolean",
+                                        "label": "Redact PII Audio"
+                                    },
+                                    {
+                                        "name": "redact_pii_audio_quality",
+                                        "type": "select",
+                                        "label": "Redact PII Audio Quality",
+                                        "validate": {
+                                            "enum": [
+                                                "mp3",
+                                                "wav"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "redact_pii_policies",
+                                        "spec": {
+                                            "name": "value",
+                                            "type": "select",
+                                            "label": "Redact PII Policies",
+                                            "options": [
+                                                {
+                                                    "label": "Account Number",
+                                                    "value": "account_number"
+                                                },
+                                                {
+                                                    "label": "Banking Information",
+                                                    "value": "banking_information"
+                                                },
+                                                {
+                                                    "label": "Blood Type",
+                                                    "value": "blood_type"
+                                                },
+                                                {
+                                                    "label": "Credit Card CVV",
+                                                    "value": "credit_card_cvv"
+                                                },
+                                                {
+                                                    "label": "Credit Card Expiration",
+                                                    "value": "credit_card_expiration"
+                                                },
+                                                {
+                                                    "label": "Credit Card Number",
+                                                    "value": "credit_card_number"
+                                                },
+                                                {
+                                                    "label": "Date",
+                                                    "value": "date"
+                                                },
+                                                {
+                                                    "label": "Date Interval",
+                                                    "value": "date_interval"
+                                                },
+                                                {
+                                                    "label": "Date of Birth",
+                                                    "value": "date_of_birth"
+                                                },
+                                                {
+                                                    "label": "Driver's License",
+                                                    "value": "drivers_license"
+                                                },
+                                                {
+                                                    "label": "Drug",
+                                                    "value": "drug"
+                                                },
+                                                {
+                                                    "label": "Duration",
+                                                    "value": "duration"
+                                                },
+                                                {
+                                                    "label": "Email Address",
+                                                    "value": "email_address"
+                                                },
+                                                {
+                                                    "label": "Event",
+                                                    "value": "event"
+                                                },
+                                                {
+                                                    "label": "Filename",
+                                                    "value": "filename"
+                                                },
+                                                {
+                                                    "label": "Gender Sexuality",
+                                                    "value": "gender_sexuality"
+                                                },
+                                                {
+                                                    "label": "Healthcare Number",
+                                                    "value": "healthcare_number"
+                                                },
+                                                {
+                                                    "label": "Injury",
+                                                    "value": "injury"
+                                                },
+                                                {
+                                                    "label": "IP Address",
+                                                    "value": "ip_address"
+                                                },
+                                                {
+                                                    "label": "Language",
+                                                    "value": "language"
+                                                },
+                                                {
+                                                    "label": "Location",
+                                                    "value": "location"
+                                                },
+                                                {
+                                                    "label": "Marital Status",
+                                                    "value": "marital_status"
+                                                },
+                                                {
+                                                    "label": "Medical Condition",
+                                                    "value": "medical_condition"
+                                                },
+                                                {
+                                                    "label": "Medical Process",
+                                                    "value": "medical_process"
+                                                },
+                                                {
+                                                    "label": "Money Amount",
+                                                    "value": "money_amount"
+                                                },
+                                                {
+                                                    "label": "Nationality",
+                                                    "value": "nationality"
+                                                },
+                                                {
+                                                    "label": "Number Sequence",
+                                                    "value": "number_sequence"
+                                                },
+                                                {
+                                                    "label": "Occupation",
+                                                    "value": "occupation"
+                                                },
+                                                {
+                                                    "label": "Organization",
+                                                    "value": "organization"
+                                                },
+                                                {
+                                                    "label": "Passport Number",
+                                                    "value": "passport_number"
+                                                },
+                                                {
+                                                    "label": "Password",
+                                                    "value": "password"
+                                                },
+                                                {
+                                                    "label": "Person Age",
+                                                    "value": "person_age"
+                                                },
+                                                {
+                                                    "label": "Person Name",
+                                                    "value": "person_name"
+                                                },
+                                                {
+                                                    "label": "Phone Number",
+                                                    "value": "phone_number"
+                                                },
+                                                {
+                                                    "label": "Physical Attribute",
+                                                    "value": "physical_attribute"
+                                                },
+                                                {
+                                                    "label": "Political Affiliation",
+                                                    "value": "political_affiliation"
+                                                },
+                                                {
+                                                    "label": "Religion",
+                                                    "value": "religion"
+                                                },
+                                                {
+                                                    "label": "Statistics",
+                                                    "value": "statistics"
+                                                },
+                                                {
+                                                    "label": "Time",
+                                                    "value": "time"
+                                                },
+                                                {
+                                                    "label": "URL",
+                                                    "value": "url"
+                                                },
+                                                {
+                                                    "label": "US Social Security Number",
+                                                    "value": "us_social_security_number"
+                                                },
+                                                {
+                                                    "label": "Username",
+                                                    "value": "username"
+                                                },
+                                                {
+                                                    "label": "Vehicle ID",
+                                                    "value": "vehicle_id"
+                                                },
+                                                {
+                                                    "label": "Zodiac Sign",
+                                                    "value": "zodiac_sign"
+                                                }
+                                            ]
+                                        },
+                                        "type": "array",
+                                        "label": "Redact PII Policies"
+                                    },
+                                    {
+                                        "name": "redact_pii_sub",
+                                        "type": "select",
+                                        "label": "Redact PII Substitution",
+                                        "validate": {
+                                            "enum": [
+                                                "entity_name",
+                                                "hash"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "speaker_labels",
+                                        "type": "boolean",
+                                        "label": "Speaker Labels"
+                                    },
+                                    {
+                                        "name": "speakers_expected",
+                                        "type": "integer",
+                                        "label": "Speakers Expected"
+                                    },
+                                    {
+                                        "name": "content_safety",
+                                        "type": "boolean",
+                                        "label": "Content Moderation"
+                                    },
+                                    {
+                                        "name": "content_safety_confidence",
+                                        "type": "integer",
+                                        "label": "Content Moderation Confidence",
+                                        "validate": {
+                                            "max": 100,
+                                            "min": 25
+                                        }
+                                    },
+                                    {
+                                        "name": "iab_categories",
+                                        "type": "boolean",
+                                        "label": "Topic Detection"
+                                    },
+                                    {
+                                        "name": "custom_spelling",
+                                        "spec": {
+                                            "name": "value",
+                                            "spec": [
+                                                {
+                                                    "name": "from",
+                                                    "spec": {
+                                                        "name": "from",
+                                                        "type": "text",
+                                                        "label": "From",
+                                                        "required": true
+                                                    },
+                                                    "type": "array",
+                                                    "label": "From",
+                                                    "required": true
+                                                },
+                                                {
+                                                    "name": "to",
+                                                    "type": "text",
+                                                    "label": "To",
+                                                    "required": true
+                                                }
+                                            ],
+                                            "type": "collection"
+                                        },
+                                        "type": "array",
+                                        "label": "Custom Spellings"
+                                    },
+                                    {
+                                        "name": "sentiment_analysis",
+                                        "type": "boolean",
+                                        "label": "Sentiment Analysis"
+                                    },
+                                    {
+                                        "name": "auto_chapters",
+                                        "type": "boolean",
+                                        "label": "Auto Chapters"
+                                    },
+                                    {
+                                        "name": "entity_detection",
+                                        "type": "boolean",
+                                        "label": "Entity Detection"
+                                    },
+                                    {
+                                        "name": "speech_threshold",
+                                        "type": "number",
+                                        "label": "Speech Threshold",
+                                        "validate": {
+                                            "max": 1,
+                                            "min": 0
+                                        }
+                                    },
+                                    {
+                                        "name": "summarization",
+                                        "type": "boolean",
+                                        "label": "Enable Summarization"
+                                    },
+                                    {
+                                        "name": "summary_model",
+                                        "type": "select",
+                                        "label": "Summary Model",
+                                        "validate": {
+                                            "enum": [
+                                                "informative",
+                                                "conversational",
+                                                "catchy"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "summary_type",
+                                        "type": "select",
+                                        "label": "Summary Type",
+                                        "validate": {
+                                            "enum": [
+                                                "bullets",
+                                                "bullets_verbose",
+                                                "gist",
+                                                "headline",
+                                                "paragraph"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "custom_topics",
+                                        "type": "boolean",
+                                        "label": "Enable Custom Topics"
+                                    },
+                                    {
+                                        "name": "topics",
+                                        "spec": {
+                                            "name": "value",
+                                            "type": "text",
+                                            "label": "Custom Topics"
+                                        },
+                                        "type": "array",
+                                        "label": "Custom Topics"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "id": 8,
+                            "module": "airtable:upsertRecord",
+                            "version": 3,
+                            "parameters": {
+                                "__IMTCONN__": 11684909
+                            },
+                            "mapper": {
+                                "base": "appS94jIIo1aBVNbN",
+                                "table": "tblVvasBqJkPKPbuG",
+                                "record": {
+                                    "fld9tg4nnEs4TAirZ": "{{7.status}}",
+                                    "fldh1mfacJW3MOUaZ": "{{7.id}}"
+                                },
+                                "recordId": "{{1.id}}",
+                                "typecast": false,
+                                "useColumnId": false
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 1500,
+                                    "y": -150
+                                },
+                                "restore": {
+                                    "expect": {
+                                        "base": {
+                                            "label": "Alchimist"
+                                        },
+                                        "table": {
+                                            "label": "Analyses"
+                                        },
+                                        "record": {
+                                            "nested": {
+                                                "fld9tg4nnEs4TAirZ": {
+                                                    "mode": "edit"
+                                                },
+                                                "fldhu4gsE8CJTOy3K": {
+                                                    "mode": "chose"
+                                                }
+                                            }
+                                        },
+                                        "typecast": {
+                                            "mode": "chose"
+                                        },
+                                        "useColumnId": {
+                                            "mode": "chose"
+                                        }
+                                    },
+                                    "parameters": {
+                                        "__IMTCONN__": {
+                                            "data": {
+                                                "scoped": "true",
+                                                "connection": "airtable2"
+                                            },
+                                            "label": "My Airtable Token or Key connection"
+                                        }
+                                    }
+                                },
+                                "parameters": [
+                                    {
+                                        "name": "__IMTCONN__",
+                                        "type": "account:airtable3,airtable2",
+                                        "label": "Connection",
+                                        "required": true
+                                    }
+                                ],
+                                "expect": [
+                                    {
+                                        "name": "base",
+                                        "type": "select",
+                                        "label": "Base",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "typecast",
+                                        "type": "boolean",
+                                        "label": "Smart links",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "useColumnId",
+                                        "type": "boolean",
+                                        "label": "Use Column ID",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "table",
+                                        "type": "select",
+                                        "label": "Table",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "recordId",
+                                        "type": "text",
+                                        "label": "Record ID"
+                                    },
+                                    {
+                                        "name": "record",
+                                        "spec": [
+                                            {
+                                                "name": "fldhu4gsE8CJTOy3K",
+                                                "spec": [
+                                                    {
+                                                        "name": "url",
+                                                        "type": "text",
+                                                        "label": "File URL"
+                                                    },
+                                                    {
+                                                        "name": "filename",
+                                                        "type": "filename",
+                                                        "label": "File name"
+                                                    }
+                                                ],
+                                                "type": "array",
+                                                "label": "Video File"
+                                            },
+                                            {
+                                                "name": "fldzha4qzgLE4p9pL",
+                                                "type": "text",
+                                                "label": "Video URL"
+                                            },
+                                            {
+                                                "name": "fldsbjUlxaDaO8uJu",
+                                                "type": "text",
+                                                "label": "Email"
+                                            },
+                                            {
+                                                "mode": "edit",
+                                                "name": "fld9tg4nnEs4TAirZ",
+                                                "type": "select",
+                                                "label": "Status"
+                                            },
+                                            {
+                                                "name": "fldQQENjYykv7rAfm",
+                                                "type": "text",
+                                                "label": "Transcript"
+                                            },
+                                            {
+                                                "name": "fldgsxURxxSWekUEn",
+                                                "type": "text",
+                                                "label": "Clip Link"
+                                            },
+                                            {
+                                                "name": "fldghYycXQZisYvXW",
+                                                "type": "text",
+                                                "label": "Post_LinkedIn"
+                                            },
+                                            {
+                                                "name": "flde5PEO7bGlYOu6q",
+                                                "type": "text",
+                                                "label": "Post_X"
+                                            },
+                                            {
+                                                "name": "fldmOPmhBkuhCdzqn",
+                                                "type": "text",
+                                                "label": "Instagram_Caption"
+                                            },
+                                            {
+                                                "name": "fld54QIXIeHkNao88",
+                                                "type": "text",
+                                                "label": "Notes"
+                                            },
+                                            {
+                                                "name": "fldh1mfacJW3MOUaZ",
+                                                "type": "text",
+                                                "label": "Transcriptid"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Record"
+                                    }
+                                ],
+                                "interface": [
+                                    {
+                                        "name": "id",
+                                        "type": "text",
+                                        "label": "ID"
+                                    },
+                                    {
+                                        "name": "createdTime",
+                                        "type": "date",
+                                        "label": "Created Time"
+                                    },
+                                    {
+                                        "name": "ID",
+                                        "type": "number",
+                                        "label": "ID"
+                                    },
+                                    {
+                                        "name": "Video File",
+                                        "spec": [
+                                            {
+                                                "name": "id",
+                                                "type": "text",
+                                                "label": "ID"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            },
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "filename",
+                                                "type": "filename",
+                                                "label": "File name"
+                                            },
+                                            {
+                                                "name": "size",
+                                                "type": "uinteger",
+                                                "label": "Size"
+                                            },
+                                            {
+                                                "name": "type",
+                                                "type": "text",
+                                                "label": "MIME type"
+                                            },
+                                            {
+                                                "name": "thumbnails",
+                                                "spec": [
+                                                    {
+                                                        "name": "small",
+                                                        "spec": [
+                                                            {
+                                                                "name": "url",
+                                                                "type": "url",
+                                                                "label": "URL"
+                                                            },
+                                                            {
+                                                                "name": "width",
+                                                                "type": "uinteger",
+                                                                "label": "Width"
+                                                            },
+                                                            {
+                                                                "name": "height",
+                                                                "type": "uinteger",
+                                                                "label": "Height"
+                                                            }
+                                                        ],
+                                                        "type": "collection",
+                                                        "label": "Small"
+                                                    },
+                                                    {
+                                                        "name": "large",
+                                                        "spec": [
+                                                            {
+                                                                "name": "url",
+                                                                "type": "url",
+                                                                "label": "URL"
+                                                            },
+                                                            {
+                                                                "name": "width",
+                                                                "type": "uinteger",
+                                                                "label": "Width"
+                                                            },
+                                                            {
+                                                                "name": "height",
+                                                                "type": "uinteger",
+                                                                "label": "Height"
+                                                            }
+                                                        ],
+                                                        "type": "collection",
+                                                        "label": "Large"
+                                                    },
+                                                    {
+                                                        "name": "full",
+                                                        "spec": [
+                                                            {
+                                                                "name": "url",
+                                                                "type": "url",
+                                                                "label": "URL"
+                                                            },
+                                                            {
+                                                                "name": "width",
+                                                                "type": "uinteger",
+                                                                "label": "Width"
+                                                            },
+                                                            {
+                                                                "name": "height",
+                                                                "type": "uinteger",
+                                                                "label": "Height"
+                                                            }
+                                                        ],
+                                                        "type": "collection",
+                                                        "label": "Full"
+                                                    }
+                                                ],
+                                                "type": "collection",
+                                                "label": "Thumbnails"
+                                            }
+                                        ],
+                                        "type": "array",
+                                        "label": "Video File"
+                                    },
+                                    {
+                                        "name": "Video URL",
+                                        "type": "text",
+                                        "label": "Video URL"
+                                    },
+                                    {
+                                        "name": "Email",
+                                        "type": "text",
+                                        "label": "Email"
+                                    },
+                                    {
+                                        "name": "Status",
+                                        "type": "text",
+                                        "label": "Status"
+                                    },
+                                    {
+                                        "name": "Transcript",
+                                        "type": "text",
+                                        "label": "Transcript",
+                                        "multiline": true
+                                    },
+                                    {
+                                        "name": "Clip Link",
+                                        "type": "text",
+                                        "label": "Clip Link"
+                                    },
+                                    {
+                                        "name": "Post_LinkedIn",
+                                        "type": "text",
+                                        "label": "Post_LinkedIn",
+                                        "multiline": true
+                                    },
+                                    {
+                                        "name": "Post_X",
+                                        "type": "text",
+                                        "label": "Post_X",
+                                        "multiline": true
+                                    },
+                                    {
+                                        "name": "Instagram_Caption",
+                                        "type": "text",
+                                        "label": "Instagram_Caption",
+                                        "multiline": true
+                                    },
+                                    {
+                                        "name": "Notes",
+                                        "type": "text",
+                                        "label": "Notes",
+                                        "multiline": true
+                                    },
+                                    {
+                                        "name": "created_at",
+                                        "type": "date",
+                                        "label": "created_at"
+                                    },
+                                    {
+                                        "name": "update",
+                                        "type": "date",
+                                        "label": "update"
+                                    },
+                                    {
+                                        "name": "Transcriptid",
+                                        "type": "text",
+                                        "label": "Transcriptid"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "flow": [
+                        {
+                            "id": 10,
+                            "module": "assembly-ai:Universal",
+                            "version": 1,
+                            "parameters": {
+                                "__IMTCONN__": 11727691
+                            },
+                            "filter": {
+                                "name": "URL Externe",
+                                "conditions": [
+                                    [
+                                        {
+                                            "a": "{{1.`Video URL`}}",
+                                            "o": "exist"
+                                        }
+                                    ]
+                                ]
+                            },
+                            "mapper": {
+                                "url": "{{1.`Video URL`}}",
+                                "method": "GET",
+                                "headers": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ]
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 600,
+                                    "y": 150
+                                },
+                                "restore": {
+                                    "expect": {
+                                        "qs": {
+                                            "mode": "chose"
+                                        },
+                                        "method": {
+                                            "mode": "chose",
+                                            "label": "GET"
+                                        },
+                                        "headers": {
+                                            "mode": "chose",
+                                            "items": [
+                                                null
+                                            ]
+                                        }
+                                    },
+                                    "parameters": {
+                                        "__IMTCONN__": {
+                                            "data": {
+                                                "scoped": "true",
+                                                "connection": "assembly-ai"
+                                            },
+                                            "label": "My AssemblyAI connection (fc845...)"
+                                        }
+                                    }
+                                },
+                                "parameters": [
+                                    {
+                                        "name": "__IMTCONN__",
+                                        "type": "account:assembly-ai",
+                                        "label": "Connection",
+                                        "required": true
+                                    }
+                                ],
+                                "expect": [
+                                    {
+                                        "name": "url",
+                                        "type": "text",
+                                        "label": "URL",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "method",
+                                        "type": "select",
+                                        "label": "Method",
+                                        "required": true,
+                                        "validate": {
+                                            "enum": [
+                                                "GET",
+                                                "POST",
+                                                "PUT",
+                                                "PATCH",
+                                                "DELETE"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "headers",
+                                        "spec": [
+                                            {
+                                                "name": "key",
+                                                "type": "text",
+                                                "label": "Key"
+                                            },
+                                            {
+                                                "name": "value",
+                                                "type": "text",
+                                                "label": "Value"
+                                            }
+                                        ],
+                                        "type": "array",
+                                        "label": "Headers"
+                                    },
+                                    {
+                                        "name": "qs",
+                                        "spec": [
+                                            {
+                                                "name": "key",
+                                                "type": "text",
+                                                "label": "Key"
+                                            },
+                                            {
+                                                "name": "value",
+                                                "type": "text",
+                                                "label": "Value"
+                                            }
+                                        ],
+                                        "type": "array",
+                                        "label": "Query String"
+                                    },
+                                    {
+                                        "name": "body",
+                                        "type": "any",
+                                        "label": "Body"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "id": 4,
+                            "module": "assembly-ai:TranscribeAudio",
+                            "version": 1,
+                            "parameters": {
+                                "__IMTCONN__": 11727691,
+                                "wait_until_ready": true
+                            },
+                            "mapper": {
+                                "audio_url": "{{10.body}}",
+                                "webhook_url": "https://hook.eu2.make.com/rbunjn5tuqi3k31dna1amnymtjnf3z7v"
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 934,
+                                    "y": 170
+                                },
+                                "restore": {
+                                    "expect": {
+                                        "topics": {
+                                            "mode": "chose"
+                                        },
+                                        "punctuate": {
+                                            "mode": "chose"
+                                        },
+                                        "redact_pii": {
+                                            "mode": "chose"
+                                        },
+                                        "word_boost": {
+                                            "mode": "chose"
+                                        },
+                                        "boost_param": {
+                                            "mode": "chose",
+                                            "label": "Empty"
+                                        },
+                                        "format_text": {
+                                            "mode": "chose"
+                                        },
+                                        "disfluencies": {
+                                            "mode": "chose"
+                                        },
+                                        "dual_channel": {
+                                            "mode": "chose"
+                                        },
+                                        "speech_model": {
+                                            "mode": "chose",
+                                            "label": "Empty"
+                                        },
+                                        "summary_type": {
+                                            "mode": "chose",
+                                            "label": "Empty"
+                                        },
+                                        "auto_chapters": {
+                                            "mode": "chose"
+                                        },
+                                        "custom_topics": {
+                                            "mode": "chose"
+                                        },
+                                        "language_code": {
+                                            "mode": "chose",
+                                            "label": "Empty"
+                                        },
+                                        "summarization": {
+                                            "mode": "chose"
+                                        },
+                                        "summary_model": {
+                                            "mode": "chose",
+                                            "label": "Empty"
+                                        },
+                                        "content_safety": {
+                                            "mode": "chose"
+                                        },
+                                        "iab_categories": {
+                                            "mode": "chose"
+                                        },
+                                        "redact_pii_sub": {
+                                            "mode": "chose",
+                                            "label": "Empty"
+                                        },
+                                        "speaker_labels": {
+                                            "mode": "chose"
+                                        },
+                                        "auto_highlights": {
+                                            "mode": "chose"
+                                        },
+                                        "custom_spelling": {
+                                            "mode": "chose"
+                                        },
+                                        "entity_detection": {
+                                            "mode": "chose"
+                                        },
+                                        "filter_profanity": {
+                                            "mode": "chose"
+                                        },
+                                        "redact_pii_audio": {
+                                            "mode": "chose"
+                                        },
+                                        "language_detection": {
+                                            "mode": "chose"
+                                        },
+                                        "sentiment_analysis": {
+                                            "mode": "chose"
+                                        },
+                                        "redact_pii_policies": {
+                                            "mode": "chose"
+                                        },
+                                        "redact_pii_audio_quality": {
+                                            "mode": "chose",
+                                            "label": "Empty"
+                                        }
+                                    },
+                                    "parameters": {
+                                        "__IMTCONN__": {
+                                            "data": {
+                                                "scoped": "true",
+                                                "connection": "assembly-ai"
+                                            },
+                                            "label": "My AssemblyAI connection (fc845...)"
+                                        }
+                                    }
+                                },
+                                "parameters": [
+                                    {
+                                        "name": "__IMTCONN__",
+                                        "type": "account:assembly-ai",
+                                        "label": "Connection",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "wait_until_ready",
+                                        "type": "boolean",
+                                        "label": "Wait until Transcript is Ready",
+                                        "required": true
+                                    }
+                                ],
+                                "expect": [
+                                    {
+                                        "name": "audio_url",
+                                        "type": "url",
+                                        "label": "Audio URL",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "language_code",
+                                        "type": "select",
+                                        "label": "Language Code",
+                                        "validate": {
+                                            "enum": [
+                                                "en",
+                                                "en_au",
+                                                "en_uk",
+                                                "en_us",
+                                                "es",
+                                                "fr",
+                                                "de",
+                                                "it",
+                                                "pt",
+                                                "nl",
+                                                "af",
+                                                "sq",
+                                                "am",
+                                                "ar",
+                                                "hy",
+                                                "as",
+                                                "az",
+                                                "ba",
+                                                "eu",
+                                                "be",
+                                                "bn",
+                                                "bs",
+                                                "br",
+                                                "bg",
+                                                "my",
+                                                "ca",
+                                                "zh",
+                                                "hr",
+                                                "cs",
+                                                "da",
+                                                "et",
+                                                "fo",
+                                                "fi",
+                                                "gl",
+                                                "ka",
+                                                "el",
+                                                "gu",
+                                                "ht",
+                                                "ha",
+                                                "haw",
+                                                "he",
+                                                "hi",
+                                                "hu",
+                                                "is",
+                                                "id",
+                                                "ja",
+                                                "jw",
+                                                "kn",
+                                                "kk",
+                                                "km",
+                                                "ko",
+                                                "lo",
+                                                "la",
+                                                "lv",
+                                                "ln",
+                                                "lt",
+                                                "lb",
+                                                "mk",
+                                                "mg",
+                                                "ms",
+                                                "ml",
+                                                "mt",
+                                                "mi",
+                                                "mr",
+                                                "mn",
+                                                "ne",
+                                                "no",
+                                                "nn",
+                                                "oc",
+                                                "pa",
+                                                "ps",
+                                                "fa",
+                                                "pl",
+                                                "ro",
+                                                "ru",
+                                                "sa",
+                                                "sr",
+                                                "sn",
+                                                "sd",
+                                                "si",
+                                                "sk",
+                                                "sl",
+                                                "so",
+                                                "su",
+                                                "sw",
+                                                "sv",
+                                                "tl",
+                                                "tg",
+                                                "ta",
+                                                "tt",
+                                                "te",
+                                                "th",
+                                                "bo",
+                                                "tr",
+                                                "tk",
+                                                "uk",
+                                                "ur",
+                                                "uz",
+                                                "vi",
+                                                "cy",
+                                                "yi",
+                                                "yo"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "language_detection",
+                                        "type": "boolean",
+                                        "label": "Language Detection"
+                                    },
+                                    {
+                                        "name": "language_confidence_threshold",
+                                        "type": "number",
+                                        "label": "Language Confidence Threshold",
+                                        "validate": {
+                                            "max": 1,
+                                            "min": 0
+                                        }
+                                    },
+                                    {
+                                        "name": "speech_model",
+                                        "type": "select",
+                                        "label": "Speech Model",
+                                        "validate": {
+                                            "enum": [
+                                                "best",
+                                                "nano"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "punctuate",
+                                        "type": "boolean",
+                                        "label": "Punctuate"
+                                    },
+                                    {
+                                        "name": "format_text",
+                                        "type": "boolean",
+                                        "label": "Format Text"
+                                    },
+                                    {
+                                        "name": "disfluencies",
+                                        "type": "boolean",
+                                        "label": "Disfluencies"
+                                    },
+                                    {
+                                        "name": "dual_channel",
+                                        "type": "boolean",
+                                        "label": "Dual Channel"
+                                    },
+                                    {
+                                        "name": "webhook_url",
+                                        "type": "url",
+                                        "label": "Webhook URL"
+                                    },
+                                    {
+                                        "name": "webhook_auth_header_name",
+                                        "type": "text",
+                                        "label": "Webhook Auth Header Name"
+                                    },
+                                    {
+                                        "name": "webhook_auth_header_value",
+                                        "type": "text",
+                                        "label": "Webhook Auth Header Value"
+                                    },
+                                    {
+                                        "name": "auto_highlights",
+                                        "type": "boolean",
+                                        "label": "Key Phrases"
+                                    },
+                                    {
+                                        "name": "audio_start_from",
+                                        "type": "integer",
+                                        "label": "Audio Start From"
+                                    },
+                                    {
+                                        "name": "audio_end_at",
+                                        "type": "integer",
+                                        "label": "Audio End At"
+                                    },
+                                    {
+                                        "name": "word_boost",
+                                        "spec": {
+                                            "name": "value",
+                                            "type": "text",
+                                            "label": "Word Boost"
+                                        },
+                                        "type": "array",
+                                        "label": "Word Boost"
+                                    },
+                                    {
+                                        "name": "boost_param",
+                                        "type": "select",
+                                        "label": "Word Boost Level",
+                                        "validate": {
+                                            "enum": [
+                                                "low",
+                                                "default",
+                                                "high"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "filter_profanity",
+                                        "type": "boolean",
+                                        "label": "Filter Profanity"
+                                    },
+                                    {
+                                        "name": "redact_pii",
+                                        "type": "boolean",
+                                        "label": "Redact PII"
+                                    },
+                                    {
+                                        "name": "redact_pii_audio",
+                                        "type": "boolean",
+                                        "label": "Redact PII Audio"
+                                    },
+                                    {
+                                        "name": "redact_pii_audio_quality",
+                                        "type": "select",
+                                        "label": "Redact PII Audio Quality",
+                                        "validate": {
+                                            "enum": [
+                                                "mp3",
+                                                "wav"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "redact_pii_policies",
+                                        "spec": {
+                                            "name": "value",
+                                            "type": "select",
+                                            "label": "Redact PII Policies",
+                                            "options": [
+                                                {
+                                                    "label": "Account Number",
+                                                    "value": "account_number"
+                                                },
+                                                {
+                                                    "label": "Banking Information",
+                                                    "value": "banking_information"
+                                                },
+                                                {
+                                                    "label": "Blood Type",
+                                                    "value": "blood_type"
+                                                },
+                                                {
+                                                    "label": "Credit Card CVV",
+                                                    "value": "credit_card_cvv"
+                                                },
+                                                {
+                                                    "label": "Credit Card Expiration",
+                                                    "value": "credit_card_expiration"
+                                                },
+                                                {
+                                                    "label": "Credit Card Number",
+                                                    "value": "credit_card_number"
+                                                },
+                                                {
+                                                    "label": "Date",
+                                                    "value": "date"
+                                                },
+                                                {
+                                                    "label": "Date Interval",
+                                                    "value": "date_interval"
+                                                },
+                                                {
+                                                    "label": "Date of Birth",
+                                                    "value": "date_of_birth"
+                                                },
+                                                {
+                                                    "label": "Driver's License",
+                                                    "value": "drivers_license"
+                                                },
+                                                {
+                                                    "label": "Drug",
+                                                    "value": "drug"
+                                                },
+                                                {
+                                                    "label": "Duration",
+                                                    "value": "duration"
+                                                },
+                                                {
+                                                    "label": "Email Address",
+                                                    "value": "email_address"
+                                                },
+                                                {
+                                                    "label": "Event",
+                                                    "value": "event"
+                                                },
+                                                {
+                                                    "label": "Filename",
+                                                    "value": "filename"
+                                                },
+                                                {
+                                                    "label": "Gender Sexuality",
+                                                    "value": "gender_sexuality"
+                                                },
+                                                {
+                                                    "label": "Healthcare Number",
+                                                    "value": "healthcare_number"
+                                                },
+                                                {
+                                                    "label": "Injury",
+                                                    "value": "injury"
+                                                },
+                                                {
+                                                    "label": "IP Address",
+                                                    "value": "ip_address"
+                                                },
+                                                {
+                                                    "label": "Language",
+                                                    "value": "language"
+                                                },
+                                                {
+                                                    "label": "Location",
+                                                    "value": "location"
+                                                },
+                                                {
+                                                    "label": "Marital Status",
+                                                    "value": "marital_status"
+                                                },
+                                                {
+                                                    "label": "Medical Condition",
+                                                    "value": "medical_condition"
+                                                },
+                                                {
+                                                    "label": "Medical Process",
+                                                    "value": "medical_process"
+                                                },
+                                                {
+                                                    "label": "Money Amount",
+                                                    "value": "money_amount"
+                                                },
+                                                {
+                                                    "label": "Nationality",
+                                                    "value": "nationality"
+                                                },
+                                                {
+                                                    "label": "Number Sequence",
+                                                    "value": "number_sequence"
+                                                },
+                                                {
+                                                    "label": "Occupation",
+                                                    "value": "occupation"
+                                                },
+                                                {
+                                                    "label": "Organization",
+                                                    "value": "organization"
+                                                },
+                                                {
+                                                    "label": "Passport Number",
+                                                    "value": "passport_number"
+                                                },
+                                                {
+                                                    "label": "Password",
+                                                    "value": "password"
+                                                },
+                                                {
+                                                    "label": "Person Age",
+                                                    "value": "person_age"
+                                                },
+                                                {
+                                                    "label": "Person Name",
+                                                    "value": "person_name"
+                                                },
+                                                {
+                                                    "label": "Phone Number",
+                                                    "value": "phone_number"
+                                                },
+                                                {
+                                                    "label": "Physical Attribute",
+                                                    "value": "physical_attribute"
+                                                },
+                                                {
+                                                    "label": "Political Affiliation",
+                                                    "value": "political_affiliation"
+                                                },
+                                                {
+                                                    "label": "Religion",
+                                                    "value": "religion"
+                                                },
+                                                {
+                                                    "label": "Statistics",
+                                                    "value": "statistics"
+                                                },
+                                                {
+                                                    "label": "Time",
+                                                    "value": "time"
+                                                },
+                                                {
+                                                    "label": "URL",
+                                                    "value": "url"
+                                                },
+                                                {
+                                                    "label": "US Social Security Number",
+                                                    "value": "us_social_security_number"
+                                                },
+                                                {
+                                                    "label": "Username",
+                                                    "value": "username"
+                                                },
+                                                {
+                                                    "label": "Vehicle ID",
+                                                    "value": "vehicle_id"
+                                                },
+                                                {
+                                                    "label": "Zodiac Sign",
+                                                    "value": "zodiac_sign"
+                                                }
+                                            ]
+                                        },
+                                        "type": "array",
+                                        "label": "Redact PII Policies"
+                                    },
+                                    {
+                                        "name": "redact_pii_sub",
+                                        "type": "select",
+                                        "label": "Redact PII Substitution",
+                                        "validate": {
+                                            "enum": [
+                                                "entity_name",
+                                                "hash"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "speaker_labels",
+                                        "type": "boolean",
+                                        "label": "Speaker Labels"
+                                    },
+                                    {
+                                        "name": "speakers_expected",
+                                        "type": "integer",
+                                        "label": "Speakers Expected"
+                                    },
+                                    {
+                                        "name": "content_safety",
+                                        "type": "boolean",
+                                        "label": "Content Moderation"
+                                    },
+                                    {
+                                        "name": "content_safety_confidence",
+                                        "type": "integer",
+                                        "label": "Content Moderation Confidence",
+                                        "validate": {
+                                            "max": 100,
+                                            "min": 25
+                                        }
+                                    },
+                                    {
+                                        "name": "iab_categories",
+                                        "type": "boolean",
+                                        "label": "Topic Detection"
+                                    },
+                                    {
+                                        "name": "custom_spelling",
+                                        "spec": {
+                                            "name": "value",
+                                            "spec": [
+                                                {
+                                                    "name": "from",
+                                                    "spec": {
+                                                        "name": "from",
+                                                        "type": "text",
+                                                        "label": "From",
+                                                        "required": true
+                                                    },
+                                                    "type": "array",
+                                                    "label": "From",
+                                                    "required": true
+                                                },
+                                                {
+                                                    "name": "to",
+                                                    "type": "text",
+                                                    "label": "To",
+                                                    "required": true
+                                                }
+                                            ],
+                                            "type": "collection"
+                                        },
+                                        "type": "array",
+                                        "label": "Custom Spellings"
+                                    },
+                                    {
+                                        "name": "sentiment_analysis",
+                                        "type": "boolean",
+                                        "label": "Sentiment Analysis"
+                                    },
+                                    {
+                                        "name": "auto_chapters",
+                                        "type": "boolean",
+                                        "label": "Auto Chapters"
+                                    },
+                                    {
+                                        "name": "entity_detection",
+                                        "type": "boolean",
+                                        "label": "Entity Detection"
+                                    },
+                                    {
+                                        "name": "speech_threshold",
+                                        "type": "number",
+                                        "label": "Speech Threshold",
+                                        "validate": {
+                                            "max": 1,
+                                            "min": 0
+                                        }
+                                    },
+                                    {
+                                        "name": "summarization",
+                                        "type": "boolean",
+                                        "label": "Enable Summarization"
+                                    },
+                                    {
+                                        "name": "summary_model",
+                                        "type": "select",
+                                        "label": "Summary Model",
+                                        "validate": {
+                                            "enum": [
+                                                "informative",
+                                                "conversational",
+                                                "catchy"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "summary_type",
+                                        "type": "select",
+                                        "label": "Summary Type",
+                                        "validate": {
+                                            "enum": [
+                                                "bullets",
+                                                "bullets_verbose",
+                                                "gist",
+                                                "headline",
+                                                "paragraph"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "custom_topics",
+                                        "type": "boolean",
+                                        "label": "Enable Custom Topics"
+                                    },
+                                    {
+                                        "name": "topics",
+                                        "spec": {
+                                            "name": "value",
+                                            "type": "text",
+                                            "label": "Custom Topics"
+                                        },
+                                        "type": "array",
+                                        "label": "Custom Topics"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "id": 9,
+                            "module": "airtable:ActionUpdateRecords",
+                            "version": 3,
+                            "parameters": {
+                                "__IMTCONN__": 11684909
+                            },
+                            "mapper": {
+                                "id": "{{1.id}}",
+                                "base": "appS94jIIo1aBVNbN",
+                                "table": "tblVvasBqJkPKPbuG",
+                                "record": {
+                                    "fld9tg4nnEs4TAirZ": "{{4.status}}",
+                                    "fldh1mfacJW3MOUaZ": "{{4.id}}"
+                                },
+                                "typecast": false,
+                                "useColumnId": false
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 1318,
+                                    "y": 146
+                                },
+                                "restore": {
+                                    "expect": {
+                                        "base": {
+                                            "label": "Alchimist"
+                                        },
+                                        "table": {
+                                            "label": "Analyses"
+                                        },
+                                        "record": {
+                                            "nested": {
+                                                "fld9tg4nnEs4TAirZ": {
+                                                    "mode": "edit"
+                                                },
+                                                "fldhu4gsE8CJTOy3K": {
+                                                    "mode": "chose"
+                                                }
+                                            }
+                                        },
+                                        "typecast": {
+                                            "mode": "chose"
+                                        },
+                                        "useColumnId": {
+                                            "mode": "chose"
+                                        }
+                                    },
+                                    "parameters": {
+                                        "__IMTCONN__": {
+                                            "data": {
+                                                "scoped": "true",
+                                                "connection": "airtable2"
+                                            },
+                                            "label": "My Airtable Token or Key connection"
+                                        }
+                                    }
+                                },
+                                "parameters": [
+                                    {
+                                        "name": "__IMTCONN__",
+                                        "type": "account:airtable3,airtable2",
+                                        "label": "Connection",
+                                        "required": true
+                                    }
+                                ],
+                                "expect": [
+                                    {
+                                        "name": "base",
+                                        "type": "select",
+                                        "label": "Base",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "typecast",
+                                        "type": "boolean",
+                                        "label": "Smart links",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "useColumnId",
+                                        "type": "boolean",
+                                        "label": "Use Column ID",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "table",
+                                        "type": "select",
+                                        "label": "Table",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "id",
+                                        "type": "text",
+                                        "label": "Record ID",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "record",
+                                        "spec": [
+                                            {
+                                                "name": "fldhu4gsE8CJTOy3K",
+                                                "spec": [
+                                                    {
+                                                        "name": "url",
+                                                        "type": "text",
+                                                        "label": "File URL"
+                                                    },
+                                                    {
+                                                        "name": "filename",
+                                                        "type": "filename",
+                                                        "label": "File name"
+                                                    }
+                                                ],
+                                                "type": "array",
+                                                "label": "Video File"
+                                            },
+                                            {
+                                                "name": "fldzha4qzgLE4p9pL",
+                                                "type": "text",
+                                                "label": "Video URL"
+                                            },
+                                            {
+                                                "name": "fldsbjUlxaDaO8uJu",
+                                                "type": "text",
+                                                "label": "Email"
+                                            },
+                                            {
+                                                "mode": "edit",
+                                                "name": "fld9tg4nnEs4TAirZ",
+                                                "type": "select",
+                                                "label": "Status"
+                                            },
+                                            {
+                                                "name": "fldQQENjYykv7rAfm",
+                                                "type": "text",
+                                                "label": "Transcript"
+                                            },
+                                            {
+                                                "name": "fldgsxURxxSWekUEn",
+                                                "type": "text",
+                                                "label": "Clip Link"
+                                            },
+                                            {
+                                                "name": "fldghYycXQZisYvXW",
+                                                "type": "text",
+                                                "label": "Post_LinkedIn"
+                                            },
+                                            {
+                                                "name": "flde5PEO7bGlYOu6q",
+                                                "type": "text",
+                                                "label": "Post_X"
+                                            },
+                                            {
+                                                "name": "fldmOPmhBkuhCdzqn",
+                                                "type": "text",
+                                                "label": "Instagram_Caption"
+                                            },
+                                            {
+                                                "name": "fld54QIXIeHkNao88",
+                                                "type": "text",
+                                                "label": "Notes"
+                                            },
+                                            {
+                                                "name": "fldh1mfacJW3MOUaZ",
+                                                "type": "text",
+                                                "label": "Transcriptid"
+                                            },
+                                            {
+                                                "name": "fldcv7LmQQoQvzJ29",
+                                                "type": "number",
+                                                "label": "Clip1_Start"
+                                            },
+                                            {
+                                                "name": "fldNT8lTFpVdVPm1W",
+                                                "type": "number",
+                                                "label": "Clip1_End"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Record"
+                                    }
+                                ],
+                                "interface": [
+                                    {
+                                        "name": "id",
+                                        "type": "text",
+                                        "label": "ID"
+                                    },
+                                    {
+                                        "name": "createdTime",
+                                        "type": "date",
+                                        "label": "Created Time"
+                                    },
+                                    {
+                                        "name": "ID",
+                                        "type": "number",
+                                        "label": "ID"
+                                    },
+                                    {
+                                        "name": "Video File",
+                                        "spec": [
+                                            {
+                                                "name": "id",
+                                                "type": "text",
+                                                "label": "ID"
+                                            },
+                                            {
+                                                "name": "width",
+                                                "type": "uinteger",
+                                                "label": "Width"
+                                            },
+                                            {
+                                                "name": "height",
+                                                "type": "uinteger",
+                                                "label": "Height"
+                                            },
+                                            {
+                                                "name": "url",
+                                                "type": "url",
+                                                "label": "URL"
+                                            },
+                                            {
+                                                "name": "filename",
+                                                "type": "filename",
+                                                "label": "File name"
+                                            },
+                                            {
+                                                "name": "size",
+                                                "type": "uinteger",
+                                                "label": "Size"
+                                            },
+                                            {
+                                                "name": "type",
+                                                "type": "text",
+                                                "label": "MIME type"
+                                            },
+                                            {
+                                                "name": "thumbnails",
+                                                "spec": [
+                                                    {
+                                                        "name": "small",
+                                                        "spec": [
+                                                            {
+                                                                "name": "url",
+                                                                "type": "url",
+                                                                "label": "URL"
+                                                            },
+                                                            {
+                                                                "name": "width",
+                                                                "type": "uinteger",
+                                                                "label": "Width"
+                                                            },
+                                                            {
+                                                                "name": "height",
+                                                                "type": "uinteger",
+                                                                "label": "Height"
+                                                            }
+                                                        ],
+                                                        "type": "collection",
+                                                        "label": "Small"
+                                                    },
+                                                    {
+                                                        "name": "large",
+                                                        "spec": [
+                                                            {
+                                                                "name": "url",
+                                                                "type": "url",
+                                                                "label": "URL"
+                                                            },
+                                                            {
+                                                                "name": "width",
+                                                                "type": "uinteger",
+                                                                "label": "Width"
+                                                            },
+                                                            {
+                                                                "name": "height",
+                                                                "type": "uinteger",
+                                                                "label": "Height"
+                                                            }
+                                                        ],
+                                                        "type": "collection",
+                                                        "label": "Large"
+                                                    },
+                                                    {
+                                                        "name": "full",
+                                                        "spec": [
+                                                            {
+                                                                "name": "url",
+                                                                "type": "url",
+                                                                "label": "URL"
+                                                            },
+                                                            {
+                                                                "name": "width",
+                                                                "type": "uinteger",
+                                                                "label": "Width"
+                                                            },
+                                                            {
+                                                                "name": "height",
+                                                                "type": "uinteger",
+                                                                "label": "Height"
+                                                            }
+                                                        ],
+                                                        "type": "collection",
+                                                        "label": "Full"
+                                                    }
+                                                ],
+                                                "type": "collection",
+                                                "label": "Thumbnails"
+                                            }
+                                        ],
+                                        "type": "array",
+                                        "label": "Video File"
+                                    },
+                                    {
+                                        "name": "Video URL",
+                                        "type": "text",
+                                        "label": "Video URL"
+                                    },
+                                    {
+                                        "name": "Email",
+                                        "type": "text",
+                                        "label": "Email"
+                                    },
+                                    {
+                                        "name": "Status",
+                                        "type": "text",
+                                        "label": "Status"
+                                    },
+                                    {
+                                        "name": "Transcript",
+                                        "type": "text",
+                                        "label": "Transcript",
+                                        "multiline": true
+                                    },
+                                    {
+                                        "name": "Clip Link",
+                                        "type": "text",
+                                        "label": "Clip Link"
+                                    },
+                                    {
+                                        "name": "Post_LinkedIn",
+                                        "type": "text",
+                                        "label": "Post_LinkedIn",
+                                        "multiline": true
+                                    },
+                                    {
+                                        "name": "Post_X",
+                                        "type": "text",
+                                        "label": "Post_X",
+                                        "multiline": true
+                                    },
+                                    {
+                                        "name": "Instagram_Caption",
+                                        "type": "text",
+                                        "label": "Instagram_Caption",
+                                        "multiline": true
+                                    },
+                                    {
+                                        "name": "Notes",
+                                        "type": "text",
+                                        "label": "Notes",
+                                        "multiline": true
+                                    },
+                                    {
+                                        "name": "created_at",
+                                        "type": "date",
+                                        "label": "created_at"
+                                    },
+                                    {
+                                        "name": "update",
+                                        "type": "date",
+                                        "label": "update"
+                                    },
+                                    {
+                                        "name": "Transcriptid",
+                                        "type": "text",
+                                        "label": "Transcriptid"
+                                    },
+                                    {
+                                        "name": "Clip1_Start",
+                                        "type": "number",
+                                        "label": "Clip1_Start"
+                                    },
+                                    {
+                                        "name": "Clip1_End",
+                                        "type": "number",
+                                        "label": "Clip1_End"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "metadata": {
+        "instant": false,
+        "version": 1,
+        "scenario": {
+            "roundtrips": 1,
+            "maxErrors": 3,
+            "autoCommit": true,
+            "autoCommitTriggerLast": true,
+            "sequential": false,
+            "slots": null,
+            "confidential": false,
+            "dataloss": false,
+            "dlq": false,
+            "freshVariables": false
+        },
+        "designer": {
+            "orphans": []
+        },
+        "zone": "eu2.make.com",
+        "notes": []
+    }
+}
