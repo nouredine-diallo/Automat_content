@@ -1,0 +1,43 @@
+Le Workflow  : 
+Le projet repose sur une communication  entre Airtable (ma base de données), Make (mon orchestrateur) et mes services d'IA. Voici comment mes deux scénarios fonctionnent entre eux  :
+
+1. Premier Scénario : L'Initialisation 
+C’est le déclencheur. Mon but ici est de transformer la donnée brute (vidéo) en donnée textuelle exploitable.
+
+Trigger (Airtable) : Le scénario surveille la table Analyses. Dès qu'une nouvelle ligne est créée ou qu'un statut passe à "Nouveau", le flux démarre.
+
+Traitement Cloud : Je récupère l'URL de la vidéo (stockée sur Dropbox ou Google Drive). pour l'instant les video youtube deposer sur airtable ne sont pas prise en compte ( propbleme pour y acceder )
+
+Transcription (AssemblyAI) : J'envoie le fichier à l'API d'AssemblyAI. J'ai configuré le module pour récupérer une transcription textuelle complète avec les timestamps (pour savoir à quelle seconde chaque mot est prononcé).
+
+Stockage ID : Je renvoie l'ID de transcription dans Airtable pour garder une trace et pouvoir lier les étapes suivantes.
+
+2. Deuxième Scénario : Le Cerveau ("Integration Webhooks")
+C’est ici que réside toute l'intelligence du projet. Ce scénario reçoit les résultats du premier et décide quoi en faire.
+
+Webhook (Point d'entrée) : Au lieu de faire tourner Make en boucle, j'utilise un Webhook personnalisé. C'est mon script local (ou le service de transcription) qui "appelle" Make dès que le travail est fini. C'est beaucoup plus efficace.
+
+Analyse Sémantique (OpenAI/GPT-4o-mini) : * J'envoie la transcription à l'IA avec un Prompt spécifique.
+
+Je demande à l'IA d'identifier les moments "viraux" (ceux qui ont un début et une fin cohérents).
+
+Ma contrainte technique : Je force l'IA à me répondre au format JSON.  Pour que Make puisse extraire automatiquement les variables Clip1_Start et Clip1_End sans erreur de lecture.
+
+Copywriting automatisé : En parallèle, l'IA génère les textes pour les réseaux sociaux (LinkedIn, X, Instagram) basés sur le contexte de la vidéo.
+
+Boucle de retour : Le scénario met à jour Airtable avec :
+
+Les timestamps pour le découpage.
+
+Les drafts des posts.
+
+Le lien final vers la vidéo traitée grace a Creatomate / mais on a refais le projet en utilisant un script pyhon qui utilise ffmeg
+
+🤝 Comment ils travaillent ensemble
+Le lien entre les deux, c'est la donnée sur Airtable.
+
+Le Script 1 prépare le terrain (le texte).
+
+Le Script 2 exécute la logique métier (choisir quoi couper et quoi écrire).
+
+ Dès que la transcription est prête, le Webhook "réveille" le deuxième scénario qui termine le travail.
